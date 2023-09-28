@@ -1,0 +1,46 @@
+import pygame
+from sys import exit
+
+pygame.init()
+
+screen=pygame.display.set_mode((600,300))
+pygame.display.set_caption('Mae')
+clock=pygame.time.Clock()
+test_font=pygame.font.Font('font/Gingerbread House.ttf',50)
+
+sky_surface=pygame.image.load('graphics/skypt2.jpg').convert_alpha()
+ground_surface=pygame.image.load('graphics/groundpt2.jpg').convert_alpha()
+enemy_surface=pygame.image.load('graphics/enemy-0.png').convert_alpha() ##CHANGE THIS
+player_surface=pygame.image.load('graphics/player-0.png').convert_alpha()
+
+sky_surface=pygame.transform.scale(sky_surface,(600,250))
+ground_surface=pygame.transform.scale(ground_surface,(600,60))
+enemy_surface=pygame.transform.scale(enemy_surface,(300,230))
+player_surface=pygame.transform.scale(player_surface,(195,190))
+text_surface=test_font.render('',False,'Black')
+
+enemy_x_pos=400
+
+while True:
+##draw all elements
+##update everything
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            pygame.quit()
+            exit()
+
+    screen.blit(sky_surface,(0,0))
+    screen.blit(ground_surface,(0,250))
+    screen.blit(enemy_surface,(enemy_x_pos,70))
+    screen.blit(player_surface,(100,125))
+  ##  screen.blit(text_surface,(230,30))
+
+    ##gnome_x_pos-=3
+    ##ground_x_pos+=1
+
+    ##if gnome_x_pos<-100:
+      ##  gnome_x_pos=600
+
+    pygame.display.update()
+
+    clock.tick(60)
