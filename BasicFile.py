@@ -29,28 +29,20 @@ while True:
         if event.type==pygame.QUIT:
             pygame.quit()
             exit()
- ##   if event.type==pygame.MOUSEMOTION:
-        mouse_pos=pygame.mouse.get_pos()
-##        if player_rect.collidepoint(event.pos):
-  ##        print("collision")
             
+        mouse_pos=pygame.mouse.get_pos()
+
     screen.blit(sky_surface,(0,0))
     screen.blit(ground_surface,(0,250))
     enemy_rect.right-=4
     if enemy_rect.right<-120:
         enemy_rect.right=750
     screen.blit(enemy_surface,enemy_rect)
-  ##  player_rect.left+=2
+
     screen.blit(player_surface,player_rect)
     pygame.draw.rect(screen,'Pink',score_rect)
-    ##pygame.draw.rect(screen,'Pink',score_rect,17,15)
-    ##pygame.draw.ellipse(screen,'Red',pygame.Rect(130,150,130,130))
-    screen.blit(score_surface,score_rect)
- ##   if player_rect.colliderect(enemy_rect):
-    
- ##   if player_rect.collidepoint(mouse_pos):
-   ##     print(pygame.mouse.get_pressed())
-        
+
+    screen.blit(score_surface,score_rect)       
     pygame.display.update()
 
     clock.tick(60)
